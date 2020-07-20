@@ -1,7 +1,8 @@
+from django.http import HttpResponseNotFound, HttpResponseServerError
 from django.shortcuts import render
 from django.views import View
+
 from careers.models import Company, Speciality, Vacancy
-from django.http import HttpResponseNotFound, HttpResponseServerError
 
 
 class MainView(View):

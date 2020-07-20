@@ -31,6 +31,8 @@ class Vacancy(models.Model):
     published_at = models.DateField()
 
 
+
+
 # for title in data.companies:
 #     Company.objects.create(name=title['title'])
 #
