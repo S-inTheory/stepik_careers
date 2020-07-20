@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-from careers.views import MainView, VacanciesView, VacanciesCatView, CompanyView, VacancyView
 
+from careers.views import MainView, VacanciesView, VacanciesCatView, CompanyView, VacancyView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
