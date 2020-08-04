@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 # from datetime import date
 
@@ -10,6 +11,7 @@ class Company(models.Model):
     logo = models.TextField(default='')
     description = models.TextField(default='')
     employee_count = models.IntegerField(null=True, default=0)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, default='')
 
 
 class Speciality(models.Model):
@@ -31,7 +33,12 @@ class Vacancy(models.Model):
     published_at = models.DateField()
 
 
-
+class Application(models.Model):
+    written_username = models.CharField(max_length=30)
+    written_phone = models.CharField(max_length=30)
+    written_cover_letter = models.TextField()
+    vacancy = models.ForeignKey(Vacancy, on_delete=models.CASCADE, related_name='applications')
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='applications')
 
 # for title in data.companies:
 #     Company.objects.create(name=title['title'])
