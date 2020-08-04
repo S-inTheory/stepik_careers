@@ -6,7 +6,6 @@ from careers.models import Company, Speciality, Vacancy
 
 
 class MainView(View):
-    template_name = 'index.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, r'careers/index.html',
@@ -16,7 +15,6 @@ class MainView(View):
 
 
 class VacanciesView(View):
-    template_name = 'vacancies.html'
 
     def get(self, request, *args, **kwargs):
         return render(request, r'careers/vacancies.html',
@@ -27,7 +25,6 @@ class VacanciesView(View):
 
 
 class VacanciesCatView(View):
-    template_name = 'vacancies.html'
 
     def get(self, request, category: str, *args, **kwargs):
         cat = Speciality.objects.all().filter(code=category)
@@ -39,7 +36,6 @@ class VacanciesCatView(View):
 
 
 class VacancyView(View):
-    template_name = 'vacancy.html'
 
     def get(self, request, id: int, *args, **kwargs):
         vac = Vacancy.objects.all().filter(id=id)
@@ -51,7 +47,6 @@ class VacancyView(View):
 
 
 class CompanyView(View):
-    template_name = 'company.html'
 
     def get(self, request, id: int, *args, **kwargs):
         comp = Company.objects.all().filter(id=id)
